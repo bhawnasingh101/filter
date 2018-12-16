@@ -106,7 +106,7 @@
 
         function GetStatus(){
             $.ajax({
-                url: site + "/_vti_bin/listdata.svc/CreateInfo",
+                url: site + "/_vti_bin/listdata.svc/CreateInfoStatus",
                 method: "GET",
                 headers: { "Accept": "application/json;odata=verbose" },
                 async: false,
@@ -172,7 +172,7 @@
 
         function filterData(filter){
             if(filter != ""){
-                siteapi = site + "/_api/lists/getbytitle('CreateInfo')/items?$select=Title,Status,department/Title,Asset/Title&$filter=" + filter + "&$expand=Department,Asset";
+                siteapi = site + "/_api/lists/getbytitle('CreateInfo')/items?$select=Title,Status,Department/Title,Asset/Title&$filter=" + filter + "&$expand=Department,Asset";
             }
             else{
                 siteapi = site + "/_api/lists/getbytitle('CreateInfo')/items?$select=Title,Status,Department/Title,Asset/Title&$expand=Department,Asset";
@@ -187,7 +187,7 @@
                     var row = "";
                     if(result.length > 0){
                         $.each(result, function(index, value){
-                              row += "<tr><td>" + value.Title + "</td><td>" + value.Status + "</td><td>" + value.Department.Title + "</td><td>" + value.asset.Title + "</td></tr>";
+                              row += "<tr><td>" + value.Title + "</td><td>" + value.Status + "</td><td>" + value.Department.Title + "</td><td>" + value.Asset.Title + "</td></tr>";
                         })
                     }
                     else{
